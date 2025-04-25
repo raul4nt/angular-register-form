@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Telefone</th>
+      <th>Data de Nascimento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clientes$ | async">
+      <!-- fazendo o for de maneira assincrona -->
+      <td>{{ cliente.nome }}</td>
+      <td>{{ cliente.email }}</td>
+      <td>{{ cliente.telefone }}</td>
+      <td>{{ cliente.dataNascimento | date: 'dd/MM/yyyy':'UTC' }}</td>
+      <!-- usando o pipe de data! vai interceptar o dado vindo de cliente.dataNascimento e transforma-lo -->
+      <!-- com o datePipe antes de aparecer na nossa tela  -->
+    </tr>
+  </tbody>
+</table>
